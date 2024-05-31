@@ -30,34 +30,33 @@ function Sidebar({ groups, contacts, messages, onSelectChat, selectedChat }) {
     <div className="sidebar">
       <h2>Chat</h2>
       <div className="filter">
-        <label>
-          <input
-            type="radio"
-            value="all"
-            checked={filter === 'all'}
-            onChange={handleFilterChange}
-          />
-          All
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="groups"
-            checked={filter === 'groups'}
-            onChange={handleFilterChange}
-          />
-          Groups
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="contacts"
-            checked={filter === 'contacts'}
-            onChange={handleFilterChange}
-          />
-          Contacts
-        </label>
-      </div>
+  <input
+    id="all"
+    type="radio"
+    value="all"
+    checked={filter === 'all'}
+    onChange={handleFilterChange}
+  />
+  <label htmlFor="all">All</label>
+  
+  <input
+    id="groups"
+    type="radio"
+    value="groups"
+    checked={filter === 'groups'}
+    onChange={handleFilterChange}
+  />
+  <label htmlFor="groups">Groups</label>
+  
+  <input
+    id="contacts"
+    type="radio"
+    value="contacts"
+    checked={filter === 'contacts'}
+    onChange={handleFilterChange}
+  />
+  <label htmlFor="contacts">Contacts</label>
+</div>
       <div className="search">
         <input
           type="text"

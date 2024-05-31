@@ -1,4 +1,5 @@
 /* src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 .app {
   display: flex;
   height: 100vh;
@@ -7,16 +8,45 @@
   font-family: 'Arial', sans-serif;
 }
 
+*{
+  user-select: none;
+  font-family: sans-serif;
+}
+
 .sidebar {
   width: 300px; /* Increased width */
   background: #2c2c2c;
-  padding: 20px;
+  padding: 0px 20px 20px 20px;
   border-right: 1px solid #444;
+  overflow-y: auto; /* Add this line */
 }
 
+.sidebar::-webkit-scrollbar {
+  width: 10px; /* width of the entire scrollbar */
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #2c2c2c; /* color of the tracking area */
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #888; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 3px solid #2c2c2c; /* creates padding around scroll thumb */
+}
+
+/* change color of scroll thumb on hover */
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.user-settings h2{
+  margin-top: 20px;
+}
 .sidebar h2 {
   color: #d4af37; /* Gold color for headers */
   margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .sidebar .filter, .sidebar .search {
@@ -24,11 +54,11 @@
 }
 
 .sidebar .filter label {
-  margin-right: 10px;
   color: #e0e0e0;
 }
 
 .sidebar .search input {
+  box-sizing: border-box;
   width: 100%;
   padding: 5px;
   border-radius: 3px;
@@ -50,7 +80,7 @@
 
 .user-settings {
   width: 300px;
-  padding: 20px;
+  padding: 0px 20px 20px 20px;
   background: #2c2c2c;
   border-left: 1px solid #444;
 }
@@ -130,4 +160,38 @@ button:hover {
 img {
   border: 1px solid #666;
   margin-top: 10px;
+}
+
+.filter label {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #666;
+  border-radius: 3px;
+  background: #444;
+  color: #e0e0e0;
+  cursor: pointer;
+}
+
+.filter label:hover {
+  background: #647d85;
+}
+
+.filter input[type="radio"] {
+  display: none;
+}
+
+.filter input[type="radio"]:checked + label {
+  background: #292e08;
+}
+
+.filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.chat-window li{
+  font-size: 25px;
+  user-select:text;
 }
