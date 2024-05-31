@@ -10,12 +10,12 @@ contract Lotus {
     }
 
     mapping(address user => PublicKey) public s_addressToPublicKey;
-    mapping(address sender => mapping(address recipient => bytes[] messages)) public s_senderToRecipientMessages;
+    mapping(address sender => mapping(address recipient => string[] ipfsMsgHash)) public s_senderToRecipientMessages;
 
-    event MessageSent(address indexed sender, address indexed recipient, bytes content, uint256 indexed timestamp);
+    event MessageSent(address indexed sender, address indexed recipient, string content, uint256 indexed timestamp);
     event PublicKeyAdded(address indexed user, bytes32 indexed publicKeyHalf1, bytes32 indexed publicKeyHalf2);
 
-    function sendMessage(address _recipient, bytes memory message) external {
+    function sendMessage(address _recipient, string memory message) external {
         s_senderToRecipientMessages[msg.sender][_recipient].push(message);
         emit MessageSent(msg.sender, _recipient, message, block.timestamp);
     }
@@ -30,7 +30,7 @@ contract Lotus {
         return (publicKey.half1, publicKey.half2);
     }
 
-    function getMessages(address _sender, address _recipient) external view returns (bytes[] memory) {
+    function getMessages(address _sender, address _recipient) external view returns (string[] memory) {
         return s_senderToRecipientMessages[_sender][_recipient];
     }
 }
