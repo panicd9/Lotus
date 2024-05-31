@@ -4,11 +4,15 @@ import Sidebar from './components/Sidebar';
 import ChatWindow from './components/ChatWindow';
 import UserSettings from './components/UserSettings';
 import DummyData from './DummyData';
+import Login from './components/Login'
 import './App.css';
 
 function App() {
   const [selectedChat, setSelectedChat] = useState(null);
-  const [user, setUser] = useState({ nickname: 'Anonymous', avatar: '' });
+  const [user, setUser] = useState(null);
+  if(!user){
+  return <Login setUser={setUser} />;
+  }
 
   return (
     <div className="app">

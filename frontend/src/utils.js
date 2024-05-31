@@ -1,3 +1,5 @@
+import DummyData from "./DummyData";
+
 export function unixToHumanReadable(unixTime) {
     const date = new Date(unixTime);
     const today = new Date();
@@ -11,6 +13,15 @@ export function unixToHumanReadable(unixTime) {
     } else if (date.getFullYear() === today.getFullYear()) {
         return `${date.getMonth() + 1}-${date.getDate()}`;
     } else {
-        return `${date.getFullYear().toString()}.${date.getMonth() + 1}.${date.getDate()}.`;
+        return `${date.getFullYear().toString()}.${date.getMonth() + 1}.${date.getDate()}`;
     }
-}   
+}
+export function senderToImage(message){
+    let id = Object.keys(DummyData.messages).find(key => DummyData.messages[key] == message);
+    DummyData.contacts.forEach(element => {
+        if(toString(element.id) == toString(id)){
+            return element.image;
+        }
+    });
+    return "";
+}

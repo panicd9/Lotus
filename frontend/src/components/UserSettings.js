@@ -36,7 +36,7 @@ function UserSettings({ user, setUser }) {
             Nickname:
         </label>
         <label>
-          <input type="text" value={nickname} onChange={handleNicknameChange} />
+          <input type="text" value={nickname} onChange={handleNicknameChange}/>
         </label>
       <div>
         <label>
