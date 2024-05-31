@@ -1,5 +1,6 @@
 /* src/App.css */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 .app {
   display: flex;
   height: 100vh;
@@ -8,31 +9,38 @@
   font-family: 'Arial', sans-serif;
 }
 
-*{
+* {
   user-select: none;
   font-family: sans-serif;
 }
 
 .sidebar {
-  width: 300px; /* Increased width */
+  width: 300px;
+  /* Increased width */
   background: #2c2c2c;
   padding: 0px 20px 20px 20px;
   border-right: 1px solid #444;
-  overflow-y: auto; /* Add this line */
+  overflow-y: auto;
+  /* Add this line */
 }
 
 .sidebar::-webkit-scrollbar {
-  width: 10px; /* width of the entire scrollbar */
+  width: 10px;
+  /* width of the entire scrollbar */
 }
 
 .sidebar::-webkit-scrollbar-track {
-  background: #2c2c2c; /* color of the tracking area */
+  background: #2c2c2c;
+  /* color of the tracking area */
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-  background-color: #888; /* color of the scroll thumb */
-  border-radius: 20px; /* roundness of the scroll thumb */
-  border: 3px solid #2c2c2c; /* creates padding around scroll thumb */
+  background-color: #888;
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* roundness of the scroll thumb */
+  border: 3px solid #2c2c2c;
+  /* creates padding around scroll thumb */
 }
 
 /* change color of scroll thumb on hover */
@@ -40,16 +48,19 @@
   background: #555;
 }
 
-.user-settings h2{
+.user-settings h2 {
   margin-top: 20px;
 }
+
 .sidebar h2 {
-  color: #d4af37; /* Gold color for headers */
+  color: #d4af37;
+  /* Gold color for headers */
   margin-bottom: 10px;
   margin-top: 20px;
 }
 
-.sidebar .filter, .sidebar .search {
+.sidebar .filter,
+.sidebar .search {
   margin-bottom: 15px;
 }
 
@@ -75,7 +86,8 @@
 }
 
 .chat-window h2 {
-  color: #d4af37; /* Gold color for headers */
+  color: #d4af37;
+  /* Gold color for headers */
 }
 
 .user-settings {
@@ -91,7 +103,8 @@
   justify-content: center;
   align-items: center;
   font-size: 1.2em;
-  color: #d4af37; /* Gold color for no selection text */
+  color: #d4af37;
+  /* Gold color for no selection text */
 }
 
 ul {
@@ -100,12 +113,15 @@ ul {
 }
 
 .contact-item {
-  padding: 15px; /* Increased padding */
-  margin: 10px 0; /* Increased margin */
+  padding: 15px 15px 15px 10px;
+  /* Increased padding */
+  margin: 10px 0;
+  /* Increased margin */
   cursor: pointer;
   background: #444;
   color: #e0e0e0;
   border-radius: 5px;
+  height: 50px;
 }
 
 .contact-item:hover {
@@ -116,17 +132,50 @@ ul {
   background: #666;
 }
 
+.sidebarProfileName{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
 .contact-name {
-  font-weight: bold; /* Bold name */
+  width: 100%;
+  margin-top: auto;
+  font-weight: bold;
+  /* Bold name */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 0;
+  -webkit-box-orient: vertical;
+}
+
+.contact-last-message-time{
+  width: 40%;
+  text-align: right;
+  font-size: 10px;
+  color: gray;
 }
 
 .contact-last-message {
-  margin-top: 5px;
-  color: #ccc; /* Lighter color for last message */
+  text-align: left;
+  width: 50%;
+  margin-top: 0px;
+  color: #ccc;
+  font-size: 12px;
+  /* Lighter color for last message */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  
 }
 
 label {
-  color: #d4af37; /* Gold color for labels */
+  color: #d4af37;
+  /* Gold color for labels */
 }
 
 input[type="text"] {
@@ -180,7 +229,7 @@ img {
   display: none;
 }
 
-.filter input[type="radio"]:checked + label {
+.filter input[type="radio"]:checked+label {
   background: #292e08;
 }
 
@@ -191,7 +240,15 @@ img {
   gap: 15px;
 }
 
-.chat-window li{
+.chat-window li {
   font-size: 25px;
-  user-select:text;
+  user-select: text;
+}
+.profileIcons{
+  float: left;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-top: 0px;
 }
