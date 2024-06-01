@@ -8,48 +8,42 @@ const EthCrypto = require('eth-crypto');
  * @property {string} address
  */
 
-export class CryptoUtils {
     /**
      * @type {Identity}
      */
-    static selfIdentity = null;
-    static wallet = null;
-    static contactPublicKeys = {};
+    var selfIdentity = null;
+    var wallet = null;
+    var contactPublicKeys = {};
 
-    static setSelfIdentity(identity) {
-        this.selfIdentity = identity;
-    }
-
-    static addContactPublicKey(contactAddress, publicKey) {
+    function adddContactPublicKey(contactAddress, publicKey) {
         this.contactPublicKeys[contactAddress] = publicKey;
     }
 
-    static getContactPublicKey(contactAddress) {
+    function getContactPublicKey(contactAddress) {
         return this.contactPublicKeys[contactAddress];
     }
 
-    static importWallet(privateKey) {
-        const wallet = new ethers.Wallet(privateKey);
-        this.wallet = wallet;
-        this.selfIdentity = {
+    function importWallet(privateKey) {
+        wallet = new ethers.Wallet(privateKey);;
+        selfIdentity = {
             address: wallet.address,
             privateKey: wallet.privateKey,
             publicKey: wallet.publicKey
         };
     }
 
-    static createWallet() {
+    function createWallet() {
         const identity = EthCrypto.createIdentity();
-        this.selfIdentity(identity);
+        selfIdentity = identity;
 
-        this.wallet = new ethers.Wallet(identity.privateKey);
+        wallet = new ethers.Wallet(identity.privateKey);
     }
 
-    static async encryptMessage(message, contactAddress) {
+    async function encryptMessage(message, contactAddress) {
         const contactPublicKey = this.contactPublicKeys[contactAddress];
 
         const signature = EthCrypto.sign(
-            this.selfIdentity.privateKey,
+            selfIdentity.privateKey,
             EthCrypto.hash.keccak256(message)
         );
         const payload = {
@@ -74,12 +68,12 @@ export class CryptoUtils {
         return encryptedMessageString;
     }
 
-    static async decryptMessage(encryptedMessageString) {
+    async function decryptMessage(encryptedMessageString) {
         // we parse the string into the object again
         const encryptedMessage = EthCrypto.cipher.parse(encryptedMessageString);
 
         const decrypted = await EthCrypto.decryptWithPrivateKey(
-            this.selfIdentity.privateKey,
+            selfIdentity.privateKey,
             encryptedMessage
         );
         const decryptedPayload = JSON.parse(decrypted);
@@ -98,4 +92,3 @@ export class CryptoUtils {
         );
         // > 'Got message from 0x19C24B2d99FB91C5...: "My name is Satoshi Buterin" Buterin'
     }
-}
