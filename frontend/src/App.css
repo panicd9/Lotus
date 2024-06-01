@@ -108,6 +108,8 @@
 }
 
 ul {
+  display: flex;
+  flex-direction: column;
   list-style: none;
   padding: 0;
 }
@@ -240,7 +242,8 @@ img {
 }
 
 .chat-window li {
-  font-size: 25px;
+  display: inline-flex;
+  font-size: 20px;
   user-select: text;
 }
 .profileIcons{
@@ -266,19 +269,21 @@ img {
   padding-left: 20px;
 }
 .message-item{
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
+  align-items: flex-end;
   margin-bottom: 20px;
-  width: 100%;
+  margin-left: 30px;
 }
 
 .chatProfileIcons{
+  bottom: 0;
   float: left;
   height: 30px;
   width: 30px;
   border-radius: 50%;
   margin-right: 10px;
-  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .login-container {
@@ -355,12 +360,28 @@ img {
 }
 
 .message-text{
+  display: flex;
+  align-items: center;
+  justify-self: center;
   color: black;
   user-select: text;
-  width: 75%;
+  width: fit-content;
+  max-width: 400px;
+  background: linear-gradient(45deg, rgba(51,105,158,1) 0%, rgba(95,213,230,1) 100%);
+  border-radius: 20px;
+  padding: 10px 20px 10px 20px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal;
 }
+
 .message-content{
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: auto;
+  white-space: pre-wrap;
+}
+
+.message-sender{
+  color: black;
 }

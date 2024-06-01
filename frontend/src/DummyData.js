@@ -17,7 +17,7 @@ const DummyData = {
       ],
       group2: [
         { id: 'msg1', text: 'Hi Family!', sender: 'Alice', time: Date.now() },
-        { id: 'msg2', text: 'Miss you allMiss you allMiss you allMiss you allMiss you allMiss you allMiss you allMiss you allMiss you allMiss you all!', sender: 'Charlie', time: Date.now() }
+        { id: 'msg2', text: 'Miss you allMiss you allMiss you allMiss you allMiss you allMiss you allMiss you allMiss you allMiss you all!', sender: 'Charlie', time: Date.now() }
       ],
       group3: [
         { id: 'msg1', text: 'Work meeting at 3 PM', sender: 'Boss', time: Date.now() },
