@@ -277,7 +277,7 @@ img {
   flex-direction: row;
   align-items: flex-end;
   margin-bottom: 20px;
-  margin-left: 30px;
+  margin-left: 10px;
 }
 
 .chatProfileIcons{
@@ -383,10 +383,13 @@ img {
   flex-direction: column;
   width: auto;
   white-space: pre-wrap;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 .message-sender{
   color: grey;
+  margin-right: auto;
 }
 
 .message-input-container {
@@ -482,7 +485,6 @@ img {
 }
 
 .add-contact input{
-  margin-top: 20px;
   width: 60%;
   height: 30px;
   font-size: 20px;
@@ -559,4 +561,78 @@ img {
   width: 20%;
   background-color: #020B14;
   margin-top: 0;
+}
+
+.deleteButton{
+  margin-left: 30px;
+  margin-top: 0px !important;
+}
+
+.labelInput{
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  align-items: center;
+  margin-top: 20px;
+  width: 600px;
+}
+
+.avatarImg{
+  margin-top: 20px !important;
+  margin-left: 10px;
+  width: 50px;
+  height: 50px;
+  border: solid 3px black !important;
+}
+
+.avatar-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.message-sender-right{
+  color: grey;
+  margin-left: auto;
+}
+
+.message-content-right{
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  white-space: pre-wrap;
+}
+
+.message-text-right{
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  color: black;
+  user-select: text;
+  width: fit-content;
+  max-width: 400px;
+  background: linear-gradient(0deg, rgba(215,224,232,1) 0%, rgba(229,230,208,1) 100%);
+  border-radius: 20px;
+  padding: 10px 20px 10px 20px;
+  word-break: break-word;
+  border: #0A1F33 1px solid;
+}
+
+.message-item-right{
+  display: inline-flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  margin-left: auto;
+}
+
+.chatProfileIcons-right{
+  bottom: 0;
+  float: right;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-bottom: 0px;
 }
