@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createWallet, importWallet } from '../utils/CryptoUtils';
 
 function Login({ setUser }) {
   const [username, setUsername] = useState('');

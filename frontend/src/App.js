@@ -8,6 +8,9 @@ import Login from './components/Login'
 import AddContact from './components/AddContact';
 import './App.css';
 
+import { Buffer } from 'buffer';
+global.Buffer = Buffer;
+
 function App() {
   const [selectedChat, setSelectedChat] = useState(null);
   const [user, setUser] = useState(null);

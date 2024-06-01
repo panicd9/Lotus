@@ -71,5 +71,6 @@
   .userSettingsLogo{
     position: absolute;
     margin-top: 400px !important;
+    bottom: 20px;
   }
   
