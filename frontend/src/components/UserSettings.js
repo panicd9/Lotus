@@ -80,6 +80,7 @@ function UserSettings({ addContactActive, setAddContactActive, setSelectedChat }
       >
         Add contact
       </button>
+      <button className='userSettingsRed'>Your new button</button>
       <img src='../icons/lotus-logo.png' alt="Avatar" width="300" className='userSettingsLogo' />
     </div>
   );

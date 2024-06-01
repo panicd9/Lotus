@@ -6,12 +6,11 @@
   height: 100vh;
   color: #e0e0e0;
   background-color: #1a1a1a;
-  font-family: 'Arial', sans-serif;
+  font-family: 'DM Sans';
 }
 
 * {
   user-select: none;
-  font-family: sans-serif;
 }
 
 .sidebar {
@@ -266,7 +265,7 @@ img {
   color:#DEE3DB;
   font-size: 50px;
   font-weight: bolder;
-  font-family: 'Lora';
+  font-family: 'Lora' !important;
   font-style: italic;
   display: flex;
   align-items: center;
@@ -523,7 +522,6 @@ img {
 }
 
 .contact-add{
-  position: absolute;
   margin-top: 320px !important;
   width: 300px;
 }
@@ -558,9 +556,20 @@ img {
 
 .notify-button{
   margin-right: 50px;
-  width: 20%;
-  background-color: #020B14;
+  width: 30%;
+  height: 60%;
+  background-color: #9b1616;
   margin-top: 0;
+  border-radius: 7px;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: 'DM Sans';
+}
+
+.notify-button:hover{
+  background-color: #5f2828;
+  transition-duration: 150ms;
+
 }
 
 .deleteButton{
@@ -571,7 +580,7 @@ img {
 .labelInput{
   display: flex;
   flex-direction: row;
-  margin-left: auto;
+  justify-content: center;
   align-items: center;
   margin-top: 20px;
   width: 600px;
@@ -635,4 +644,9 @@ img {
   border-radius: 50%;
   margin-left: 10px;
   margin-bottom: 0px;
+}
+
+.userSettingsRed{
+  background-color: #9b1616 !important;
+  height: 8%;
 }
