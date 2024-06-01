@@ -10,6 +10,7 @@ function UserSettings({ user, setUser }) {
   const [avatar, setAvatar] = useState(user.avatar);
   const [settingsVisible, setSettingsVisible] = useState(false); // Add this line
   const [addContactActive, setAddContactActive] = useState(false); // Add this line
+  const [selectedImage, setSelectedImage] = useState(null); // Add this line
 
   const handleNicknameChange = (e) => {
     setNickname(e.target.value);
@@ -18,6 +19,7 @@ function UserSettings({ user, setUser }) {
   const handleAvatarChange = async (e) => {
     const file = e.target.files[0];
     if (file) {
+      setSelectedImage(URL.createObjectURL(file)); // Add this line
       try {
         const added = await ipfs.add(file);
         setAvatar(`https://ipfs.infura.io/ipfs/${added.path}`);
@@ -45,26 +47,28 @@ function UserSettings({ user, setUser }) {
         <label>
           <input type="text" value={nickname} onChange={handleNicknameChange}/>
         </label>
-      <div>
-        <label>
+        <div className='avatar-container'>
+          <div>
+          <label>
             Avatar:
-        </label>
-        <label>
-          <input
-            type="file"
-            id="file-input"
-            onChange={handleAvatarChange}
-            style={{ display: 'none' }}
-          />
-          <button
-            className="custom-file-button"
-            onClick={() => document.getElementById('file-input').click()}
-          >
-            Choose File
-          </button>
-        </label>
-        {avatar && <img src={avatar} alt="Avatar" width="100" />}
-      </div>
+          </label>
+          <label>
+            <input
+              type="file"
+              id="file-input"
+              onChange={handleAvatarChange}
+              style={{ display: 'none' }}
+            />
+            <button
+              className="custom-file-button"
+              onClick={() => document.getElementById('file-input').click()}
+            >
+              Choose File
+            </button>
+          </label>
+          </div>
+          {selectedImage && <img className='avatarImg' src={selectedImage} alt="Selected" width="100" />} {/* Move this line up */}
+        </div>
       <button onClick={handleSave}>Save</button>
       </>
       )}

@@ -13,6 +13,14 @@ function ChatWindow({ chat, messages }) {
       </div>
       <ul className="messages">
         {messages.map((message) => (
+          <li key={message.id} className="message-item-right">
+            <div className='message-content-right'>
+              <div className="message-text-right">{message.text}</div>
+            </div>
+            <img src={process.env.PUBLIC_URL + '/icons/userIcon.jpg'} className='chatProfileIcons-right'/>
+          </li>
+        ))}
+        {messages.map((message) => (
           <li key={message.id} className="message-item">
             <img src={process.env.PUBLIC_URL + '/icons/userIcon.jpg'} className='chatProfileIcons'/>
             <div className='message-content'>
