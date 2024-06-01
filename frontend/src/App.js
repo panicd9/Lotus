@@ -5,6 +5,7 @@ import ChatWindow from './components/ChatWindow';
 import UserSettings from './components/UserSettings';
 import DummyData from './DummyData';
 import Login from './components/Login'
+import AddContact from './components/AddContact';
 import './App.css';
 
 function App() {
@@ -23,7 +24,9 @@ function App() {
         onSelectChat={setSelectedChat}
         selectedChat={selectedChat}
       />
-      {selectedChat ? (
+      {user.addContactActive ? (
+        <AddContact />
+      ) : selectedChat ? (
         <ChatWindow chat={selectedChat} messages={DummyData.messages[selectedChat.id]} />
       ) : (
         <div className="no-selection">Select a chat to start messaging</div>

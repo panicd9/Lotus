@@ -95,12 +95,6 @@
   /* Gold color for headers */
 }
 
-.user-settings {
-  width: 300px;
-  padding: 0px 20px 20px 20px;
-  border-left: 1px solid black;
-}
-
 .no-selection {
   flex: 1;
   display: flex;
@@ -475,4 +469,94 @@ img {
 .send-button:hover {
   transition-duration: 110ms;
   background-color: #24619b;
+}
+
+.add-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  padding: 10px;  
+  flex: 1;
+  background: linear-gradient(30deg, rgb(16, 72, 124) 0%, rgba(13,40,66,1) 100%);
+}
+
+.add-contact input{
+  margin-top: 20px;
+  width: 60%;
+  height: 30px;
+  font-size: 20px;
+  background-color: #134162;
+  border-radius: 7px;
+}
+
+.add-contact button{
+  margin-top: 40px;
+  background-color: #020B14;
+  border-radius: 6px;
+}
+
+.add-contact::-webkit-scrollbar {
+  width: 10px;
+  /* width of the entire scrollbar */
+}
+
+.add-contact::-webkit-scrollbar-track {
+  background: #020B14;
+  /* color of the tracking area */
+}
+
+.add-contact::-webkit-scrollbar-thumb {
+  background-color: #383737;
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* roundness of the scroll thumb */
+  border: 3px solid #2c2c2c;
+  /* creates padding around scroll thumb */
+}
+
+/* change color of scroll thumb on hover */
+.add-contact::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.contact-add{
+  position: absolute;
+  margin-top: 320px !important;
+  width: 300px;
+}
+
+.contact-add-active {
+  background-color: #383737 !important; /* Change this to the color you want when active */
+}
+
+.button-container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-container button {
+  flex: 1;
+  margin: 0 10px;
+  width: 248px;
+}
+
+.button-container button:hover {
+  transition-duration: 200ms;
+  background-color: #383737;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+}
+
+.notify-button{
+  margin-right: 50px;
+  width: 20%;
+  background-color: #020B14;
+  margin-top: 0;
 }

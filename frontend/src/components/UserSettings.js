@@ -9,6 +9,7 @@ function UserSettings({ user, setUser }) {
   const [nickname, setNickname] = useState(user.nickname);
   const [avatar, setAvatar] = useState(user.avatar);
   const [settingsVisible, setSettingsVisible] = useState(false); // Add this line
+  const [addContactActive, setAddContactActive] = useState(false); // Add this line
 
   const handleNicknameChange = (e) => {
     setNickname(e.target.value);
@@ -67,6 +68,12 @@ function UserSettings({ user, setUser }) {
       <button onClick={handleSave}>Save</button>
       </>
       )}
+      <button 
+        className={`contact-add ${user.addContactActive ? 'contact-add-active' : ''}`} 
+        onClick={() => setUser({...user, addContactActive: !user.addContactActive})}
+      >
+        {user.addContactActive ? 'Add Contact' : 'Add Contact'}
+      </button>
       <img src='../icons/lotus-logo.png' alt="Avatar" width="300" className='userSettingsLogo' />
     </div>
   );
