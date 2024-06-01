@@ -17,6 +17,12 @@ function ChatWindow({ chat, messages }) {
           </li>
         ))}
       </ul>
+      <div className="message-input-container">
+        <input type="text" className="message-input" placeholder="Type a message..." />
+        <label for="file-input" className="file-input-label">Choose file</label>
+        <input id="file-input" type="file" className="file-input" />
+        <button className="send-button">Send</button>
+      </div>
     </div>
   );
 }

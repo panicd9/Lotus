@@ -79,10 +79,14 @@
 }
 
 .chat-window {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   flex: 1;
   padding: 0px;
   border-left: 1px solid #444;
   background: #FFFFFF;
+  overflow: hidden;
 }
 
 .chat-window h2 {
@@ -151,6 +155,12 @@ ul {
   display: -webkit-box;
   -webkit-line-clamp: 0;
   -webkit-box-orient: vertical;
+}
+
+.message-area{
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 10px;
 }
 
 .contact-last-message-time{
@@ -384,4 +394,88 @@ img {
 
 .message-sender{
   color: black;
+}
+
+.message-input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* This will center the send button vertically */
+  padding: 10px;
+  background-color: #0A1F33;
+  margin-top: auto;
+}
+
+.message-input {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #4FC0D0;
+  color: #FFFFFF;
+  font-size: 20px;
+}
+
+.file-input {
+  display: none;
+  margin-left: 10px;
+  color: #e0e0e0;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: linear-gradient(to right, #9C27B0, #E040FB);
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.file-input:hover {
+  background: linear-gradient(to right, #E040FB, #9C27B0);
+}
+
+.message-input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #0A1F33;
+  margin-top: auto;
+}
+
+.message-input {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #4FC0D0;
+  background-color: #FFFFFF;
+  color: #4FC0D0;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.file-input-label {
+  background: linear-gradient(to right, #9C27B0, #E040FB);
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.file-input-label:hover {
+  background: linear-gradient(to right, #E040FB, #9C27B0);
+}
+
+.send-button {
+  background-color: #5FC7E6;
+  border: none;
+  color: #FFFFFF;
+  padding: 11px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: auto;
+}
+
+.send-button:hover {
+  background-color: #10304e;
 }
