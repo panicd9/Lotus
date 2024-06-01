@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { unixToHumanReadable } from '../utils';
 
-function Sidebar({ groups, contacts, messages, onSelectChat, selectedChat }) {
+function Sidebar({ groups, contacts, messages, onSelectChat, selectedChat, setAddContactActive }) {
 	const [filter, setFilter] = useState('all');
 	const [searchTerm, setSearchTerm] = useState('');
 
@@ -79,7 +79,10 @@ function Sidebar({ groups, contacts, messages, onSelectChat, selectedChat }) {
 							<div
 								key={group.id}
 								className={`contact-item ${selectedChat && selectedChat.id === group.id ? 'active' : ''}`}
-								onClick={() => onSelectChat(group)}
+								onClick={() => {
+									onSelectChat(group)
+									setAddContactActive(false);
+								}}
 							>
 								<img src={process.env.PUBLIC_URL + '/icons/' + group.image} className='profileIcons'/>
 								<div className='sidebarProfileName'><div className="contact-name">{group.name}</div><div className="contact-last-message-time">{unixToHumanReadable(getLastMessageTime(group.id))}</div></div>
@@ -97,7 +100,10 @@ function Sidebar({ groups, contacts, messages, onSelectChat, selectedChat }) {
 							<div
 								key={contact.id}
 								className={`contact-item ${selectedChat && selectedChat.id === contact.id ? 'active' : ''}`}
-								onClick={() => onSelectChat(contact)}
+								onClick={() => {
+									onSelectChat(contact)
+									setAddContactActive(false);
+								}}
 							>
 								<img src={process.env.PUBLIC_URL + '/icons/' + contact.image} className='profileIcons'/>
 								<div className='sidebarProfileName'><div className="contact-name">{contact.name}</div><div className="contact-last-message-time">{unixToHumanReadable(getLastMessageTime(contact.id))}</div></div>

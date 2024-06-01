@@ -6,6 +6,7 @@ import UserSettings from './components/UserSettings';
 import DummyData from './DummyData';
 import Login from './components/Login'
 import AddContact from './components/AddContact';
+import { createWallet } from './utils/CryptoUtils';
 import './App.css';
 
 import { Buffer } from 'buffer';
@@ -13,9 +14,20 @@ global.Buffer = Buffer;
 
 function App() {
   const [selectedChat, setSelectedChat] = useState(null);
-  const [user, setUser] = useState(null);
-  if(!user){
-  return <Login setUser={setUser} />;
+  const [addContactActive, setAddContactActive] = useState(false); // Add this line
+  const [selfIdentity, setSelfIdentity] = useState(null);
+  
+  const handleCreateWallet = () => {
+    const identity = createWallet();
+    setSelfIdentity(identity);
+  };
+
+  const handleAddContact = () => {
+    setAddContactActive(true);
+  };
+
+  if(selfIdentity === null){
+  return <Login handleCreateWallet={handleCreateWallet}/>;
   }
 
   return (
@@ -26,15 +38,16 @@ function App() {
         messages={DummyData.messages}
         onSelectChat={setSelectedChat}
         selectedChat={selectedChat}
+        setAddContactActive={setAddContactActive}
       />
-      {user.addContactActive ? (
+      {addContactActive ? (
         <AddContact />
       ) : selectedChat ? (
         <ChatWindow chat={selectedChat} messages={DummyData.messages[selectedChat.id]} />
       ) : (
         <div className="no-selection">Select a chat to start messaging</div>
       )}
-      <UserSettings user={user} setUser={setUser} />
+      <UserSettings addContactActive={addContactActive} setAddContactActive={setAddContactActive} setSelectedChat={setSelectedChat} />
     </div>
   );
 }

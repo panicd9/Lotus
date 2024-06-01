@@ -5,11 +5,10 @@ import './UserSettings.css'; // Import the CSS file for styling
 
 const ipfs = create('https://ipfs.infura.io:5001/api/v0');
 
-function UserSettings({ user, setUser }) {
-  const [nickname, setNickname] = useState(user.nickname);
-  const [avatar, setAvatar] = useState(user.avatar);
+function UserSettings({ addContactActive, setAddContactActive, setSelectedChat }) {
+  const [nickname, setNickname] = useState(null);
+  const [avatar, setAvatar] = useState(null);
   const [settingsVisible, setSettingsVisible] = useState(false); // Add this line
-  const [addContactActive, setAddContactActive] = useState(false); // Add this line
   const [selectedImage, setSelectedImage] = useState(null); // Add this line
 
   const handleNicknameChange = (e) => {
@@ -30,7 +29,7 @@ function UserSettings({ user, setUser }) {
   };
 
   const handleSave = () => {
-    setUser({ nickname, avatar });
+    
   };
 
   return (
@@ -73,10 +72,13 @@ function UserSettings({ user, setUser }) {
       </>
       )}
       <button 
-        className={`contact-add ${user.addContactActive ? 'contact-add-active' : ''}`} 
-        onClick={() => setUser({...user, addContactActive: !user.addContactActive})}
+        className={`contact-add ${addContactActive ? 'contact-add-active' : ''}`} 
+        onClick={() => {
+          setAddContactActive(true)
+          setSelectedChat(null)
+        }}
       >
-        {user.addContactActive ? 'Add Contact' : 'Add Contact'}
+        Add contact
       </button>
       <img src='../icons/lotus-logo.png' alt="Avatar" width="300" className='userSettingsLogo' />
     </div>

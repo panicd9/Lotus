@@ -11,7 +11,7 @@ const EthCrypto = require('eth-crypto');
     /**
      * @type {Identity}
      */
-    var selfIdentity = null;
+    export var selfIdentity = null;
     var wallet = null;
     var contactPublicKeys = {};
 
@@ -23,7 +23,7 @@ const EthCrypto = require('eth-crypto');
         return this.contactPublicKeys[contactAddress];
     }
 
-    function importWallet(privateKey) {
+    export function importWallet(privateKey) {
         wallet = new ethers.Wallet(privateKey);;
         selfIdentity = {
             address: wallet.address,
@@ -32,9 +32,10 @@ const EthCrypto = require('eth-crypto');
         };
     }
 
-    function createWallet() {
+    export function createWallet() {
         const identity = EthCrypto.createIdentity();
         selfIdentity = identity;
+        console.log('selfIdentity', selfIdentity);
 
         wallet = new ethers.Wallet(identity.privateKey);
     }
