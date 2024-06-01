@@ -5,7 +5,12 @@ import { senderToImage } from '../utils';
 function ChatWindow({ chat, messages }) {
   return (
     <div className="chat-window">
-      <div className='chatWindowUpper'>{chat.name}</div>
+      <div className='chatWindowUpper flex-container'>
+        <div>{chat.name}</div>
+        <button className='notify-button'>
+          {chat.type === 'group' ? 'Notify Participants' : 'Notify Other'}
+        </button>
+      </div>
       <ul className="messages">
         {messages.map((message) => (
           <li key={message.id} className="message-item">

@@ -1,8 +1,9 @@
 /* src/components/UserSettings.css */
 .user-settings {
-  box-sizing:content-box;
+    margin-right: 0px;
+    box-sizing:content-box;
     width: 300px;
-    padding: 20px;
+    padding: 10px 20px 20px 20px;
     background: linear-gradient(0deg, rgba(10,31,51,1) 0%, rgba(13,40,66,1) 100%);
     border-left: 1px solid black;
     display: flex;
