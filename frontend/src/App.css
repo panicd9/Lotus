@@ -79,13 +79,14 @@
 }
 
 .chat-window {
+  box-sizing: border-box;
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   height: 100%;
   flex: 1;
   padding: 0px;
   border: 1px solid black;
-  overflow: hidden;
   background:linear-gradient(30deg, rgb(16, 72, 124) 0%, rgba(13,40,66,1) 100%);
 }
 
