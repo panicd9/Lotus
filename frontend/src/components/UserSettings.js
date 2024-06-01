@@ -8,6 +8,7 @@ const ipfs = create('https://ipfs.infura.io:5001/api/v0');
 function UserSettings({ user, setUser }) {
   const [nickname, setNickname] = useState(user.nickname);
   const [avatar, setAvatar] = useState(user.avatar);
+  const [settingsVisible, setSettingsVisible] = useState(false); // Add this line
 
   const handleNicknameChange = (e) => {
     setNickname(e.target.value);
@@ -31,6 +32,11 @@ function UserSettings({ user, setUser }) {
 
   return (
     <div className="user-settings">
+            <button onClick={() => setSettingsVisible(!settingsVisible)}>
+        {settingsVisible ? 'Hide Settings' : 'Show Settings'}
+      </button>
+      {settingsVisible && (
+        <>
       <h2>User Settings</h2>
         <label>
             Nickname:
@@ -59,6 +65,9 @@ function UserSettings({ user, setUser }) {
         {avatar && <img src={avatar} alt="Avatar" width="100" />}
       </div>
       <button onClick={handleSave}>Save</button>
+      </>
+      )}
+      <img src='../icons/lotus-logo.png' alt="Avatar" width="300" className='userSettingsLogo' />
     </div>
   );
 }

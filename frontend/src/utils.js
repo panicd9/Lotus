@@ -13,7 +13,7 @@ export function unixToHumanReadable(unixTime) {
     } else if (date.getFullYear() === today.getFullYear()) {
         return `${date.getMonth() + 1}-${date.getDate()}`;
     } else {
-        return `${date.getFullYear().toString()}.${date.getMonth() + 1}.${date.getDate()}`;
+        return `${date.getFullYear().toString()}.${date.getMonth() + 1}.${date.getDate()}.`;
     }
 }
 export function senderToImage(message){

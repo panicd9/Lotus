@@ -17,9 +17,9 @@
 .sidebar {
   width: 300px;
   /* Increased width */
-  background: #2c2c2c;
+  background: linear-gradient(0deg, rgba(10,31,51,1) 0%, rgba(13,40,66,1) 100%);
   padding: 0px 20px 20px 20px;
-  border-right: 1px solid #444;
+  border-right: 1px solid black;
   overflow-y: auto;
   /* Add this line */
 }
@@ -30,12 +30,12 @@
 }
 
 .sidebar::-webkit-scrollbar-track {
-  background: #2c2c2c;
+  background: #020B14;
   /* color of the tracking area */
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-  background-color: #888;
+  background-color: #383737;
   /* color of the scroll thumb */
   border-radius: 20px;
   /* roundness of the scroll thumb */
@@ -53,7 +53,7 @@
 }
 
 .sidebar h2 {
-  color: #d4af37;
+  color: #b8e2f2;
   /* Gold color for headers */
   margin-bottom: 10px;
   margin-top: 20px;
@@ -72,9 +72,9 @@
   box-sizing: border-box;
   width: 100%;
   padding: 5px;
-  border-radius: 3px;
+  border-radius: 7px;
   border: 1px solid #666;
-  background: #444;
+  background: #020B14;
   color: #e0e0e0;
 }
 
@@ -84,21 +84,20 @@
   height: 100%;
   flex: 1;
   padding: 0px;
-  border-left: 1px solid #444;
-  background: #FFFFFF;
+  border: 1px solid black;
   overflow: hidden;
+  background:linear-gradient(30deg, rgb(16, 72, 124) 0%, rgba(13,40,66,1) 100%);
 }
 
 .chat-window h2 {
-  color: #d4af37;
+  color: #b8e2f2;
   /* Gold color for headers */
 }
 
 .user-settings {
   width: 300px;
   padding: 0px 20px 20px 20px;
-  background: #2c2c2c;
-  border-left: 1px solid #444;
+  border-left: 1px solid black;
 }
 
 .no-selection {
@@ -107,7 +106,7 @@
   justify-content: center;
   align-items: center;
   font-size: 1.2em;
-  color: #d4af37;
+  color: #b8e2f2;
   /* Gold color for no selection text */
 }
 
@@ -124,18 +123,18 @@ ul {
   margin: 10px 0;
   /* Increased margin */
   cursor: pointer;
-  background: #444;
+  background: #020B14;
   color: #e0e0e0;
-  border-radius: 5px;
+  border-radius: 15px;
   height: 50px;
 }
 
 .contact-item:hover {
-  background: #555;
+  background: #383737;
 }
 
 .contact-item.active {
-  background: #666;
+  background: #383737;
 }
 
 .sidebarProfileName{
@@ -186,7 +185,7 @@ ul {
 }
 
 label {
-  color: #d4af37;
+  color: #b8e2f2;
   /* Gold color for labels */
 }
 
@@ -226,8 +225,8 @@ img {
   display: inline-block;
   padding: 10px 20px;
   border: 1px solid #666;
-  border-radius: 3px;
-  background: #444;
+  border-radius: 6px;
+  background: #020B14;
   color: #e0e0e0;
   cursor: pointer;
 }
@@ -241,7 +240,7 @@ img {
 }
 
 .filter input[type="radio"]:checked+label {
-  background: #292e08;
+  background: #383737;
 }
 
 .filter {
@@ -265,11 +264,11 @@ img {
   margin-top: 0px;
 }
 .chatWindowUpper{
-  border-bottom: #1a1a1a 3px solid;
+  border-bottom: black 3px solid;
   height: 100px;
-  background-color: #5FC7E6;
+  background-color: #061f37;
   width: 100%;
-  color:#0A1F33;
+  color:#DEE3DB;
   font-size: 50px;
   font-weight: bolder;
   font-family: 'Lora';
@@ -377,12 +376,11 @@ img {
   user-select: text;
   width: fit-content;
   max-width: 400px;
-  background: linear-gradient(45deg, rgba(51,105,158,1) 0%, rgba(95,213,230,1) 100%);
+  background: linear-gradient(0deg, rgba(215,224,232,1) 0%, rgba(229,230,208,1) 100%);
   border-radius: 20px;
   padding: 10px 20px 10px 20px;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  white-space: normal;
+  word-break: break-word;
+  border: #0A1F33 1px solid;
 }
 
 .message-content{
@@ -393,16 +391,17 @@ img {
 }
 
 .message-sender{
-  color: black;
+  color: grey;
 }
 
 .message-input-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center; /* This will center the send button vertically */
   padding: 10px;
-  background-color: #0A1F33;
+  background: linear-gradient(0deg, rgba(10,31,51,1) 0%, rgba(13,40,66,1) 100%);
   margin-top: auto;
+  border-top: 2px solid black;
 }
 
 .message-input {
@@ -410,7 +409,7 @@ img {
   padding: 10px;
   border-radius: 5px;
   border: none;
-  background-color: #4FC0D0;
+  background-color: #4FC0D0 ; 
   color: #FFFFFF;
   font-size: 20px;
 }
@@ -422,14 +421,8 @@ img {
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
-  background: linear-gradient(to right, #9C27B0, #E040FB);
   color: #FFFFFF;
   cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.file-input:hover {
-  background: linear-gradient(to right, #E040FB, #9C27B0);
 }
 
 .message-input-container {
@@ -443,17 +436,17 @@ img {
 
 .message-input {
   flex-grow: 1;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 10px !important;
+  border-radius: 15px !important;
   border: 1px solid #4FC0D0;
-  background-color: #FFFFFF;
+  background-color: #134162 !important;
   color: #4FC0D0;
   font-size: 20px;
   margin-right: 10px;
 }
 
 .file-input-label {
-  background: linear-gradient(to right, #9C27B0, #E040FB);
+  background-color: #020B14;
   color: #FFFFFF;
   padding: 10px 20px;
   border-radius: 5px;
@@ -462,20 +455,23 @@ img {
 }
 
 .file-input-label:hover {
-  background: linear-gradient(to right, #E040FB, #9C27B0);
+  transition-duration: 110ms;
+  background-color: #24619b;
 }
 
 .send-button {
-  background-color: #5FC7E6;
+  background-color: #020B14;
   border: none;
   color: #FFFFFF;
-  padding: 11px 20px;
+  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   margin-left: 10px;
-  margin-top: auto;
+  margin-top: 0px;
+  font-size: 15px;
 }
 
 .send-button:hover {
-  background-color: #10304e;
+  transition-duration: 110ms;
+  background-color: #24619b;
 }

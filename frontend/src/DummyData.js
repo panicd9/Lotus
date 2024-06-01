@@ -12,8 +12,8 @@ const DummyData = {
     ],
     messages: {
       group1: [
-        { id: 'msg1', text: 'Hello Friends!', sender: 'Alice', time: Date.now() },
-        { id: 'msg2', text: 'How are you all?Hello Friends!Hello Friends!Hello Friends!Hello Friends!Hello Friends!Hello Friends!', sender: 'Bob', time: Date.now() - 99999999999 }
+        { id: 'msg1', text: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', sender: 'Alice', time: Date.now() },
+        { id: 'msg2', text: 'How are you all?Hello Friends!Hello Friends!Hello Friends!Hello Friends!Hello Friends!Hello Friends!', sender: 'Bob', time: Date.now() - 9999999999 }
       ],
       group2: [
         { id: 'msg1', text: 'Hi Family!', sender: 'Alice', time: Date.now() },
