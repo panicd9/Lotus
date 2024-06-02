@@ -6,34 +6,51 @@ const DummyData = {
       { id: 'group3', name: 'Work', image: 'userIcon.jpg' }
     ],
     contacts: [
-      { id: 'contact1', name: 'Alice', image: 'userIcon.jpg' },
-      { id: 'contact2', name: 'Bob', image: 'userIcon.jpg' },
-      { id: 'contact3', name: 'Charlie', image: 'userIcon.jpg' }
+      { sender: 'Alice', name: 'Alice', image: 'userIcon.jpg' },
+      { sender: 'Bob', name: 'Bob', image: 'userIcon.jpg' },
+      { sender: 'Charlie', name: 'Charlie', image: 'userIcon.jpg' },
+      { sender: 'Boss', name: 'Boss', image: 'userIcon.jpg' },
     ],
     messages: {
-      group1: [
-        { id: 'msg1', text: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', sender: 'Alice', time: Date.now() },
-        { id: 'msg2', text: 'How are you all?Hello Friends!Hello Friends!Hello Friends!Hello Friends!Hello Friends!Hello Friends!', sender: 'Bob', time: Date.now() - 9999999999 }
+      'Alice': [
+        { recipient: 'group1', content: 'Hello Friends!', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'group2', content: 'Hi Family!', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'group3', content: 'Got it!', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'contact1', content: 'What\'s up?', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'contact3', content: 'Hi Charlie!', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'group1', content: 'New message 1', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'group2', content: 'New message 2', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'group3', content: 'New message 3', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'contact1', content: 'New message 4', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'contact3', content: 'New message 5', ipfsMsgHash: "QmASDF", timestamp: Date.now() }
       ],
-      group2: [
-        { id: 'msg1', text: 'Hi Family!', sender: 'Alice', time: Date.now() },
-        { id: 'msg2', text: 'Miss you allMiss you allMiss you allMiss you allMiss you allMiss you allMiss you allMiss you allMiss you all!', sender: 'Charlie', time: Date.now() }
+      'Bob': [
+        { recipient: 'group1', content: 'How are you all?', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'contact1', content: 'Hey Alice!', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'contact2', content: 'Let\'s catch up!', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'group1', content: 'New message 1', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'group2', content: 'New message 2', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'group3', content: 'New message 3', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'contact1', content: 'New message 4', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'contact3', content: 'New message 5', ipfsMsgHash: "QmASDF", timestamp: Date.now() }
       ],
-      group3: [
-        { id: 'msg1', text: 'Work meeting at 3 PM', sender: 'Boss', time: Date.now() },
-        { id: 'msg2', text: 'Got it!', sender: 'Alice', time: Date.now() }
+      'Charlie': [
+        { recipient: 'group2', content: 'Miss you all!', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'contact2', content: 'Hello Bob!', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'contact3', content: 'Long time no see!', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'group1', content: 'New message 1', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'group2', content: 'New message 2', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'group3', content: 'New message 3', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'contact1', content: 'New message 4', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'contact3', content: 'New message 5', ipfsMsgHash: "QmASDF", timestamp: Date.now() }
       ],
-      contact1: [
-        { id: 'msg1', text: 'Hey Alice!', sender: 'Bob', time: Date.now() },
-        { id: 'msg2', text: 'What\'s up?', sender: 'Alice', time: Date.now() }
-      ],
-      contact2: [
-        { id: 'msg1', text: 'Hello Bob!', sender: 'Charlie', time: Date.now() },
-        { id: 'msg2', text: 'Let\'s catch up!', sender: 'Bob', time: Date.now() }
-      ],
-      contact3: [
-        { id: 'msg1', text: 'Hi Charlie!', sender: 'Alice', time: Date.now() },
-        { id: 'msg2', text: 'Long time no see!', sender: 'Charlie', time: Date.now() }
+      'Boss': [
+        { recipient: 'group3', content: 'Work meeting at 3 PM', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'group1', content: 'New message 1', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'group2', content: 'New message 2', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'group3', content: 'New message 3', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'contact1', content: 'New message 4', ipfsMsgHash: "QmASDF", timestamp: Date.now() },
+        { recipient: 'contact3', content: 'New message 5', ipfsMsgHash: "QmASDF", timestamp: Date.now() }
       ]
     }
   };

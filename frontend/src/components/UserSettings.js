@@ -81,7 +81,7 @@ function UserSettings({ addContactActive, setAddContactActive, setSelectedChat }
       >
         Add contact
       </button>
-      <button className='userSettingsRed' onClick={() => addPublicKey()}>Your new button</button>
+      <button className='userSettingsRed' onClick={() => addPublicKey()}>Publish public key</button>
       <img src='../icons/lotus-logo.png' alt="Avatar" width="300" className='userSettingsLogo' />
     </div>
   );

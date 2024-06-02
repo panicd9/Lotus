@@ -15,7 +15,7 @@ const EthCrypto = require('eth-crypto');
     /**
      * @type {Identity}
      */
-    let selfIdentity = null;
+    export let selfIdentity = null;
     let wallet = null;
     let contactPublicKeys = {};
     export let contract = null;
@@ -38,9 +38,10 @@ const EthCrypto = require('eth-crypto');
         selfIdentity = {
             address: wallet.address,
             privateKey: wallet.privateKey,
-            publicKey: SigningKey.computePublicKey(wallet.privateKey)
+            publicKey: SigningKey.computePublicKey(wallet.privateKey).substring(4)
         };
 
+        console.log("selfIdentity: ", selfIdentity)
         contract = new ethers.Contract(contractAddresses.anvil, lotusAbi, wallet);
     }
 
@@ -58,7 +59,7 @@ const EthCrypto = require('eth-crypto');
     async function encryptMessage(message, contactAddress) {
         const contactPublicKeyHalfs = await getPublicKey("0xa0Ee7A142d267C1f36714E4a8F75612F20a79720")
 
-        const contactPublicKeyString = contactPublicKeyHalfs[0].substring(2) + contactPublicKeyHalfs[1].substring(2);
+        const contactPublicKeyString =  contactPublicKeyHalfs[0].substring(2) + contactPublicKeyHalfs[1].substring(2);
         console.log("contactPublicKeyString: ", contactPublicKeyString)
 
         // const contactPublicKey = Buffer.from(contactPublicKeyString, 'hex');
@@ -77,6 +78,8 @@ const EthCrypto = require('eth-crypto');
             contactPublicKeyString,
             JSON.stringify(payload) // we have to stringify the payload before we can encrypt it
         );
+
+        console.log("encrypted: ", encrypted)
         /*  { iv: 'c66fbc24cc7ef520a7...',
           ephemPublicKey: '048e34ce5cca0b69d4e1f5...',
           ciphertext: '27b91fe986e3ab030...',
@@ -87,14 +90,22 @@ const EthCrypto = require('eth-crypto');
         // we convert the object into a smaller string-representation
         const encryptedMessageString = EthCrypto.cipher.stringify(encrypted);
         // > '812ee676cf06ba72316862fd3dabe7e403c7395bda62243b7b0eea5eb..'
-
+        console.log("encryptedMessageString1: ", encryptedMessageString)
         return encryptedMessageString;
     }
 
-    async function decryptMessage(encryptedMessageString) {
+    export async function decryptMessage(encryptedMessageBytes) {
+        console.log("encryptedMessageString: ", encryptedMessageBytes)
+        const encryptedMessageByteArray = new Uint8Array(Buffer.from(encryptedMessageBytes.substring(2), 'hex'));
+        console.log("encryptedMessageByteArray: ", encryptedMessageByteArray)
+
+        const decoder = new TextDecoder('utf-8');
+        const encryptedMessageString = decoder.decode(encryptedMessageByteArray);
+
         // we parse the string into the object again
         const encryptedMessage = EthCrypto.cipher.parse(encryptedMessageString);
 
+        console.log("encryptedMessage2: ", encryptedMessage)
         const decrypted = await EthCrypto.decryptWithPrivateKey(
             selfIdentity.privateKey,
             encryptedMessage
@@ -114,6 +125,8 @@ const EthCrypto = require('eth-crypto');
             decryptedPayload.message
         );
         // > 'Got message from 0x19C24B2d99FB91C5...: "My name is Satoshi Buterin" Buterin'
+
+        return decryptedPayload.message;
     }
 
     export async function addPublicKey() {
@@ -164,7 +177,10 @@ const EthCrypto = require('eth-crypto');
         const removedFirst2Bytes = base58CID.slice(2);
         console.log("base58CID: ", base58CID)
         console.log("recipient: ", recipient)   
-        const tx = await contract.sendMessage(recipient, removedFirst2Bytes, ethers.toUtf8Bytes(encryptedMsg));
+
+        const encryptedMsgBytes = ethers.toUtf8Bytes(encryptedMsg);
+        console.log("encryptedMsgBytes: ", encryptedMsgBytes)
+        const tx = await contract.sendMessage(recipient, removedFirst2Bytes, encryptedMsgBytes);
         return tx.wait();
     }
     

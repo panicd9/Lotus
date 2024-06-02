@@ -75,18 +75,18 @@ function Sidebar({ groups, contacts, messages, onSelectChat, selectedChat, setAd
 				<>
 					<h2>Groups</h2>
 					<ul>
-						{filteredGroups.map((group) => (
+						{filteredGroups.map((group, index) => (
 							<div
-								key={group.id}
-								className={`contact-item ${selectedChat && selectedChat.id === group.id ? 'active' : ''}`}
+								key={index}
+								className={`contact-item ${selectedChat && selectedChat.id === index ? 'active' : ''}`}
 								onClick={() => {
 									onSelectChat(group)
 									setAddContactActive(false);
 								}}
 							>
 								<img src={process.env.PUBLIC_URL + '/icons/' + group.image} className='profileIcons'/>
-								<div className='sidebarProfileName'><div className="contact-name">{group.name}</div><div className="contact-last-message-time">{unixToHumanReadable(getLastMessageTime(group.id))}</div></div>
-								<div className="contact-last-message">{getLastMessage(group.id)}</div>
+								<div className='sidebarProfileName'><div className="contact-name">{group.name}</div><div className="contact-last-message-time">{unixToHumanReadable(getLastMessageTime(index))}</div></div>
+								<div className="contact-last-message">{getLastMessage(index)}</div>
 							</div>
 						))}
 					</ul>
@@ -96,18 +96,18 @@ function Sidebar({ groups, contacts, messages, onSelectChat, selectedChat, setAd
 				<>
 					<h2>Contacts</h2>
 					<ul>
-						{filteredContacts.map((contact) => (
+						{filteredContacts.map((contact, index) => (
 							<div
-								key={contact.id}
-								className={`contact-item ${selectedChat && selectedChat.id === contact.id ? 'active' : ''}`}
+								key={index}
+								className={`contact-item ${selectedChat && selectedChat.id === index ? 'active' : ''}`}
 								onClick={() => {
 									onSelectChat(contact)
 									setAddContactActive(false);
 								}}
 							>
 								<img src={process.env.PUBLIC_URL + '/icons/' + contact.image} className='profileIcons'/>
-								<div className='sidebarProfileName'><div className="contact-name">{contact.name}</div><div className="contact-last-message-time">{unixToHumanReadable(getLastMessageTime(contact.id))}</div></div>
-								<div className="contact-last-message">{getLastMessage(contact.id)}</div>
+								<div className='sidebarProfileName'><div className="contact-name">{contact.name}</div><div className="contact-last-message-time">{unixToHumanReadable(getLastMessageTime(index))}</div></div>
+								<div className="contact-last-message">{getLastMessage(index)}</div>
 							</div>
 						))}
 					</ul>

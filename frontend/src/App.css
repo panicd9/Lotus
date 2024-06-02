@@ -87,6 +87,31 @@
   padding: 0px;
   border: 1px solid black;
   background:linear-gradient(30deg, rgb(16, 72, 124) 0%, rgba(13,40,66,1) 100%);
+  overflow-y: auto;
+}
+
+.chat-window::-webkit-scrollbar {
+  width: 10px;
+  /* width of the entire scrollbar */
+}
+
+.chat-window::-webkit-scrollbar-track {
+  background: #020B14;
+  /* color of the tracking area */
+}
+
+.chat-window::-webkit-scrollbar-thumb {
+  background-color: #383737;
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* roundness of the scroll thumb */
+  border: 3px solid #2c2c2c;
+  /* creates padding around scroll thumb */
+}
+
+/* change color of scroll thumb on hover */
+.chat-window::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .chat-window h2 {

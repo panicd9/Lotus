@@ -13,7 +13,7 @@ function Login({ handleCreateWallet, handleImportWallet }) {
       <img src= {process.env.PUBLIC_URL + '/icons/lotus-logo.png'} alt="Logo" />
       <form className="login-form">
         <div className="input-group">
-          <input type="text" placeholder="Enter your name" className="login-input" onChange={handlePrivateKeyChange}/>
+          <input type="text" placeholder="Import wallet with private key" className="login-input" onChange={handlePrivateKeyChange}/>
           <button onClick={() => handleImportWallet(privateKey)} type="button" className="login-button import-button">Import</button>
         </div>
         <p className='login-text'>If you don't have an account, you can create one by clicking the 'Create' button.</p>
