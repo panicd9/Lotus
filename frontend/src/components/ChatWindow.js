@@ -1,8 +1,22 @@
 // src/components/ChatWindow.js
-import React from 'react';
-import { senderToImage } from '../utils';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
+import { sendMessage } from '../utils/CryptoUtils';
+import { contract } from '../utils/CryptoUtils';
 
 function ChatWindow({ chat, messages }) {
+  function handleSend() {
+    const message = document.getElementById('message-input').value;
+    console.log('Sending message:', message);
+    sendMessage(message, "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720")
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+  }
+
   return (
     <div className="chat-window">
       <div className='chatWindowUpper flex-container'>
@@ -31,10 +45,10 @@ function ChatWindow({ chat, messages }) {
         ))}
       </ul>
       <div className="message-input-container">
-        <input type="text" className="message-input" placeholder="Type a message..." />
+        <input id="message-input" type="text" className="message-input" placeholder="Type a message..." />
         <label for="file-input" className="file-input-label">Choose file</label>
         <input id="file-input" type="file" className="file-input" />
-        <button className="send-button">Send</button>
+        <button className="send-button" onClick={handleSend}>Send</button>
       </div>
     </div>
   );

@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
 import { createWallet, importWallet } from '../utils/CryptoUtils';
 
-function Login({ handleCreateWallet }) {
+function Login({ handleCreateWallet, handleImportWallet }) {
   const [privateKey, setPrivateKey] = useState('');
-
-  const handleImportWallet = () => {
-    if (privateKey) {
-      importWallet(privateKey);
-    }
-  };
 
   const handlePrivateKeyChange = (event) => {
     setPrivateKey(event.target.value);
@@ -20,7 +14,7 @@ function Login({ handleCreateWallet }) {
       <form className="login-form">
         <div className="input-group">
           <input type="text" placeholder="Enter your name" className="login-input" onChange={handlePrivateKeyChange}/>
-          <button onClick={handleImportWallet} type="button" className="login-button import-button">Import</button>
+          <button onClick={() => handleImportWallet(privateKey)} type="button" className="login-button import-button">Import</button>
         </div>
         <p className='login-text'>If you don't have an account, you can create one by clicking the 'Create' button.</p>
         <button onClick={handleCreateWallet} type="submit" className="login-button create-button">Create</button>

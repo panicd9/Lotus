@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { create } from 'ipfs-http-client';
 import './UserSettings.css'; // Import the CSS file for styling
+import { addPublicKey } from '../utils/CryptoUtils';
 
 const ipfs = create('https://ipfs.infura.io:5001/api/v0');
 
@@ -80,7 +81,7 @@ function UserSettings({ addContactActive, setAddContactActive, setSelectedChat }
       >
         Add contact
       </button>
-      <button className='userSettingsRed'>Your new button</button>
+      <button className='userSettingsRed' onClick={() => addPublicKey()}>Your new button</button>
       <img src='../icons/lotus-logo.png' alt="Avatar" width="300" className='userSettingsLogo' />
     </div>
   );
